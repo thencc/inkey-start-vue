@@ -18,6 +18,7 @@ export default defineComponent({
         async inkeyConnect() {
             const account = await algonaut.inkeyConnect({ siteName: 'Inkey Starter dApp' as any })
             state.account = account;
+            state.accountInfo = await algonaut.getAccountInfo(state.account.address);
         }
     }
 })

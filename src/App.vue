@@ -12,11 +12,26 @@ import { state } from './state';
     <Home />
 </template>
 
-<style scoped>
+<style>
 .header {
     display: flex;
     width: 100%;
     background-color: #ccc;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+h3 {
+    flex: 1 1 50%;
+}
+
+.inkey-connect {
+    flex: 1 1 50%;
+    text-align: right;
+    margin-left: auto;
 }
 
 
