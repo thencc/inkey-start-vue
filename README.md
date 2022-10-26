@@ -24,6 +24,6 @@ npm run dev
 An overview of the important files in `src/`:
 
  - `algonaut.ts`: Instantiates and configures Algonaut to use Inkey.
- - `components/InkeyConnect.vue`: A button that connects to Inkey and displays account information once connected
  - `state.ts`: Maintains account state with Vue Reactivity
- - 
+ - `components/InkeyConnect.vue`: A button that connects to Inkey and displays account information once connected
+ - `components/Home.vue`: Contains asset creation & opt-in tests.
