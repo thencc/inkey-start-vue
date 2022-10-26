@@ -1,6 +1,7 @@
 <template>
     <div class="inkey-connect">
         <button @click="inkeyConnect" v-show="!state.account">Connect</button>
+        <button @click="inkeyShow" v-show="state.account">Account</button>
     </div>
 </template>
 <script lang="ts">
@@ -19,6 +20,9 @@ export default defineComponent({
             const account = await algonaut.inkeyConnect({ siteName: 'Inkey Starter dApp' as any })
             state.account = account;
             state.accountInfo = await algonaut.getAccountInfo(state.account.address);
+        },  
+        inkeyShow() {
+            algonaut.inkeyShow();
         }
     }
 })
