@@ -2,6 +2,8 @@
 
 This is a project for starting an [Inkey](https://inkey.ncc.la/)-based dApp, written in Vue.
 
+> [Live demo of this project here](https://thencc.github.io/inkey-start-vue-live-demo/)
+
 > [Inkey Docs](https://inkey.ncc.la/docs/)
 
 ## How to Use
