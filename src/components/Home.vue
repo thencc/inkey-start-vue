@@ -80,9 +80,13 @@ export default defineComponent({
                 } else if (res.createdIndex) {
                     this.assetCreated = true;
                     this.assetInfo = await algonaut.getAssetInfo(res.createdIndex);
-                    // update account info
+                    state.accountInfo = await algonaut.getAccountInfo(state.account.address);
+                } else if (res.status === 'success') {
+                    this.assetCreated = true;
+                    this.assetInfo = await algonaut.getAssetInfo(res.meta['asset-index']);
                     state.accountInfo = await algonaut.getAccountInfo(state.account.address);
                 } else {
+                    console.log(res);
                     this.error = 'Error creating asset.'
                 }
             } catch (e) {
