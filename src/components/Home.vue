@@ -63,31 +63,34 @@ export default defineComponent({
             this.error = '';
             this.loading = 'Awaiting signature...';
             try {
-                const res = await algonaut.createAsset({
+                const res = await algonaut.sendTransaction([await algonaut.atomicCreateAsset({
                     assetName: 'Test Asset',
                     symbol: 'TEST',
                     decimals: 3,
                     amount: 100000,
                     metaBlock: ''
-                }, {
+                })], {
                     onSign: () => this.loading = 'Sending transaction...',
                     onSend: () => this.loading = 'Waiting for confirmation...',
                     onConfirm: () => this.loading = 'Getting asset info...'
                 });
-                if (res.createdIndex) {
+
+                if (res.status === 'rejected') {
+                    this.error = 'The user rejected the request.'
+                } else if (res.createdIndex) {
                     this.assetCreated = true;
                     this.assetInfo = await algonaut.getAssetInfo(res.createdIndex);
+                    // update account info
+                    state.accountInfo = await algonaut.getAccountInfo(state.account.address);
                 } else {
                     this.error = 'Error creating asset.'
                 }
-                this.loading = null;
-
-                // update account info
-                state.accountInfo = await algonaut.getAccountInfo(state.account.address);
             } catch (e) {
                 console.error(e);
                 this.error = 'Error creating asset. Do you have ALGO in your account?'
             }
+
+            this.loading = null;
         },
         async optInAsset() {
             this.error = '';

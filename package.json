@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@thencc/algonautjs": "^0.1.70",
+    "@thencc/algonautjs": "^0.1.78",
     "dotenv": "^16.0.3",
     "vue": "^3.2.37"
   },
