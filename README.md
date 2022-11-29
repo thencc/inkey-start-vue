@@ -1,6 +1,8 @@
 # Inkey Starter dApp
 
-This is a project for starting an Inkey-based dApp, written in Vue.
+This is a project for starting an [Inkey](https://inkey.ncc.la/)-based dApp, written in Vue.
+
+> [Inkey Docs](https://inkey.ncc.la/docs/)
 
 ## How to Use
 
